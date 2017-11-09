@@ -1,6 +1,6 @@
 button {
   margin: 0 auto;
-  opacity: 0.25;
+  opacity: 0.3;
   position: fixed;
   transition: opacity 0.5s;
 }
@@ -16,13 +16,9 @@ button {
 }
 
 .container > div {
-  background-color: lightblue;
+  background-color: azure;
   flex: 1 0 auto;
   height: auto;
   transition: background-color 0.1s;
   width: 6.25%;
-}
-
-.container > .hover {
-  background-color: black;
 }

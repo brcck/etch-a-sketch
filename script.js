@@ -2,7 +2,7 @@
 "use strict";
 
 function drawColor(e) {
-  e.currentTarget.style.backgroundColor = "black";
+  e.currentTarget.style.backgroundColor = incrementColor();
 }
 
 function createCanvas(side) {
@@ -19,20 +19,26 @@ function createCanvas(side) {
 
 function destroyCanvas() {
   while (container.hasChildNodes()) {
-    container.removeChild(container.firstChild)
+    container.removeChild(container.firstChild);
   }
 }
 
 function promptForSize() {
-  let size = prompt("Squares per side:");
+  let size = prompt("Squares per side:", "16");
   destroyCanvas();
   createCanvas(size);
 }
 
-let makeVisible = (e) => {e.currentTarget.style.opacity = 1}
-let makeInvisible = (e) => {e.currentTarget.style.opacity = 0.25}
+function incrementColor() {
+  currentHue += 20;
+  return "hsl(" + currentHue + ", 100%, 70%)"
+}
+
+let makeVisible = (e) => {e.currentTarget.style.opacity = 1};
+let makeInvisible = (e) => {e.currentTarget.style.opacity = 0.3};
 
 let container = document.querySelector("div");
+let currentHue = 120;
 
 createCanvas(16);
 
