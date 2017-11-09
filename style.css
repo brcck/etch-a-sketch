@@ -4,9 +4,12 @@
 }
 
 .container > div {
-  background: tomato;
+  background-color: lightblue;
   flex: 1 0 auto;
   height: 6.25vw;
   width: 6.25vw;
+}
 
+.container > .hover {
+  background: black;
 }
