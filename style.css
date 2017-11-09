@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.container > div {
+  background: tomato;
+  flex: 1 0 auto;
+  height: 6.25vw;
+  width: 6.25vw;
+
+}
