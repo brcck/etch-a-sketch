@@ -1,15 +1,28 @@
+button {
+  margin: 0 auto;
+  opacity: 0.25;
+  position: fixed;
+  transition: opacity 0.5s;
+}
+
 .container {
   display: flex;
   flex-flow: row wrap;
+  height: 90vw;
+  margin: 0 auto;
+  max-height: 90vh;
+  max-width: 90vh;
+  width: 90vw;
 }
 
 .container > div {
   background-color: lightblue;
   flex: 1 0 auto;
-  height: 6.25vw;
-  width: 6.25vw;
+  height: auto;
+  transition: background-color 0.1s;
+  width: 6.25%;
 }
 
 .container > .hover {
-  background: black;
+  background-color: black;
 }

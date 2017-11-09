@@ -1,20 +1,42 @@
-'esversion: 6';
-'use strict';
+"esversion: 6";
+"use strict";
 
-function changeColor(e) {
-  e.currentTarget.classList.add("hover");
+function drawColor(e) {
+  e.currentTarget.style.backgroundColor = "black";
 }
 
-function resetColor(e) {
-  e.currentTarget.classList.remove("hover");
+function createCanvas(side) {
+  if (container.hasChildNodes()) destroyCanvas();
+  let size = side**2;
+  for (let i = 0; i <= size - 1; i++) {
+    let div = document.createElement("div");
+    div.id = i;
+    div.style.width = 100 / side + "%";
+    div.addEventListener("mouseover", drawColor);
+    container.appendChild(div);
+  }
 }
 
-let container = document.querySelector('div');
-
-for (let i = 0; i <= 256; i++) {
-  let div = document.createElement('div');
-  div.id = i;
-  div.addEventListener("mouseover", changeColor);
-  // div.addEventListener("mouseout", resetColor);
-  container.appendChild(div);
+function destroyCanvas() {
+  while (container.hasChildNodes()) {
+    container.removeChild(container.firstChild)
+  }
 }
+
+function promptForSize() {
+  let size = prompt("Squares per side:");
+  destroyCanvas();
+  createCanvas(size);
+}
+
+let makeVisible = (e) => {e.currentTarget.style.opacity = 1}
+let makeInvisible = (e) => {e.currentTarget.style.opacity = 0.25}
+
+let container = document.querySelector("div");
+
+createCanvas(16);
+
+let resetButton = document.querySelector(".reset");
+resetButton.addEventListener("mouseover", makeVisible);
+resetButton.addEventListener("mouseout", makeInvisible);
+resetButton.onclick = promptForSize;
