@@ -1,8 +1,8 @@
-"esversion: 6";
-"use strict";
+'use strict';
 
 function drawColor(e) {
-  e.currentTarget.style.backgroundColor = incrementColor();
+  colorToggle ? e.currentTarget.style.backgroundColor  = incrementColor() :
+  e.currentTarget.style.backgroundColor  = "black";
 }
 
 function createCanvas(side) {
@@ -34,15 +34,20 @@ function incrementColor() {
   return "hsl(" + currentHue + ", 100%, 70%)"
 }
 
-let makeVisible = (e) => {e.currentTarget.style.opacity = 1};
-let makeInvisible = (e) => {e.currentTarget.style.opacity = 0.3};
-
-let container = document.querySelector("div");
+let container = document.querySelector(".container");
 let currentHue = 120;
+let colorToggle = true;
+let size = 16;
 
-createCanvas(16);
+createCanvas(size);
 
 let resetButton = document.querySelector(".reset");
-resetButton.addEventListener("mouseover", makeVisible);
-resetButton.addEventListener("mouseout", makeInvisible);
 resetButton.onclick = promptForSize;
+
+let colorButton = document.querySelector(".color");
+colorButton.onclick = function() {
+  colorToggle = !colorToggle
+  destroyCanvas();
+  createCanvas(size);
+  this.innerHTML === "black" ? this.innerHTML = "color" : this.innerHTML = "black";
+};

@@ -1,24 +1,51 @@
 button {
+  background: tomato;
+  border: 0 none;
+  border-radius: 2px;
+  color: snow;
+  display: block;
+  height: 30px;
   margin: 0 auto;
-  opacity: 0.3;
-  position: fixed;
-  transition: opacity 0.5s;
+  margin-top: 5px;
+  transition: all 100ms linear;
+  width: 150px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  opacity: 0.65;
 }
 
 .container {
+  background: azure;
+  border: tomato solid 40px;
+  border-radius: 5px;
+  box-shadow: 0 10px 80px lightgray;
   display: flex;
   flex-flow: row wrap;
-  height: 90vw;
+  height: 75vw;
   margin: 0 auto;
-  max-height: 90vh;
-  max-width: 90vh;
-  width: 90vw;
+  margin-bottom: 1vh;
+  margin-top: 5vh;
+  max-height: 70vh;
+  max-width: 70vh;
+  width: 75vw;
 }
 
 .container > div {
   background-color: azure;
+  box-sizing: border-box;
+  border: 1px solid azure;
+  border-radius: 7px;
   flex: 1 0 auto;
   height: auto;
   transition: background-color 0.1s;
   width: 6.25%;
+}
+
+.options {
+  width: 99vw;
 }
